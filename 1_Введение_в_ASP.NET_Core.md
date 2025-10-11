@@ -158,7 +158,7 @@ public class HelloController : ControllerBase
     GET http://localhost:5000/api/hello
 
     ### Post запрос
-    POST {{WebApplication2_HostAddress}}/api/test/
+    POST http://localhost:5000/api/test/
 
     {
         "name": "value",
@@ -166,7 +166,7 @@ public class HelloController : ControllerBase
     }
 
     ### Put запрос
-    PUT {{WebApplication2_HostAddress}}/api/test/5
+    PUT http://localhost:5000/api/test/5
 
     {
         "name": "value",
