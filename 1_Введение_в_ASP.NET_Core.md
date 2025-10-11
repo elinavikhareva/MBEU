@@ -154,14 +154,24 @@ public class HelloController : ControllerBase
 
 Создай файл `requests.http` в корне проекта и добавь туда:
 
-    ### Успешный ответ
+    ### Get запрос
     GET http://localhost:5000/api/hello
 
-    ### Ошибка 400
-    GET http://localhost:5000/api/hello/bad
+    ### Post запрос
+    POST {{WebApplication2_HostAddress}}/api/test/
 
-    ### Ошибка 404
-    GET http://localhost:5000/api/hello/notfound
+    {
+        "name": "value",
+        "age": 30
+    }
+
+    ### Put запрос
+    PUT {{WebApplication2_HostAddress}}/api/test/5
+
+    {
+        "name": "value",
+        "age": 30
+    }
 
 Теперь просто наведи курсор на строку `GET ...`\
 и нажми **▶ Run Request** (справа от строки).\
