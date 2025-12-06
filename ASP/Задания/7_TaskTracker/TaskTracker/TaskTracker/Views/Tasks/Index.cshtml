@@ -1,0 +1,42 @@
+﻿@model List<TaskTracker.Models.TaskItem>
+
+@{
+    ViewData["Title"] = "Tasks";
+}
+
+<h1>Tasks</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">New Task</a>
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Done</th>
+        <th>Title</th>
+        <th>Created</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr class="@(item.IsDone ? "text-muted" : "")">
+            <td>
+                @if (item.IsDone)
+                {
+                    <span>✔</span>
+                }
+            </td>
+            <td>@item.Title</td>
+            <td>@item.CreatedUtc.ToLocalTime()</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
